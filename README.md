@@ -33,6 +33,7 @@ npm run build
 ```bash
 cp .env.example .env
 php artisan key:generate
+php artisan migrate --seed
 ```
 4. Iniciar el proyecto
 
