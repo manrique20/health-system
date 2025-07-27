@@ -27,8 +27,14 @@ cd health-system
 ```bash
 npm i
 composer i
+npm run build
 ```
-2. Iniciar el proyecto
+3. Configurar entorno (.env)
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+4. Iniciar el proyecto
 
 Abrir dos terminales y ejecutar los siguiente comando en una terminal
 
