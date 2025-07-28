@@ -39,9 +39,7 @@
                         </div>
                     </div>
 
-                    <!-- Botones de acción -->
                     <div class="ml-4 flex flex-col space-y-2">
-                        <!-- Botón confirmar - solo se muestra si está programado Y la ruta contiene doctor o General -->
                         <button 
                             v-if="appointment.status === 'scheduled' && canConfirmAppointments"
                             @click="$emit('confirm', appointment.id)" 
@@ -50,7 +48,6 @@
                             Confirmar
                         </button>
                         
-                        <!-- Botón cancelar -->
                         <button 
                             @click="$emit('cancel', appointment.id)" 
                             class="font-medium text-red-600 hover:text-red-800"
