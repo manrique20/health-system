@@ -30,6 +30,8 @@ Podrás crear doctores y pacientes
 Básicamente seras un superadministrador
 Una vez tengas creado doctores y pacientes con su correo correspondiente, estos podrán ingresar a la pagina por medio del login
 
+## Mejoras
+Este sistema es bastante robusto, pero puede ser mejor, una implementación que falto fue el uso de Mailtrap, pero la información esta lista para ser enviada
 
 ## Instalación
 
