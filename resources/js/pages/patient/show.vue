@@ -99,7 +99,6 @@ const handleCancel = async (appointmentId) => {
             <div class="grid grid-cols-1 gap-6 lg:grid-cols-4">
                 <div class="lg:col-span-1">
                     <div class="rounded-lg bg-white p-6 shadow-md">
-                        <!-- Información del paciente -->
                         <div class="mb-6 border-b pb-4">
                             <h3 class="mb-2 font-semibold text-gray-700">Información del Paciente</h3>
                             <div v-if="currentPatient" class="space-y-1 text-sm">

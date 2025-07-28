@@ -12,7 +12,6 @@ export function useLocalStorage(key, defaultValue) {
 
     const data = ref(initial);
 
-    // Guardar cambios
     watch(
         data,
         (newValue) => {
@@ -25,7 +24,6 @@ export function useLocalStorage(key, defaultValue) {
         { deep: true },
     );
 
-    // Sincronizar entre pestañas
     window.addEventListener('storage', (e) => {
         if (e.key === key && e.newValue) {
             try {

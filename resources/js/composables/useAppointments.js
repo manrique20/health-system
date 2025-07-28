@@ -69,7 +69,6 @@ export function useAppointments() {
     const index = appointments.value.findIndex(apt => apt.id === appointmentId);
     if (index !== -1) {
         const appointment = appointments.value[index];
-        // Cambiar el estado a confirmed
         appointments.value[index] = {
             ...appointment,
             status: 'confirmed'
