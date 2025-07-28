@@ -18,7 +18,7 @@ Al ser doctor podras asignarte citas con todos los pacientes
 Podrás crear otros pacientes
 Verás todas las citas que tengas o tuviste programadas que correspondan a tu id
 Tendras detalle a tu información personal
-
+Podras confirmar una cita de un paciente
 ## ¿Qué puedo hacer como paciente?
 
 Al ser paciente podrás solo agendar citas y ver cuales citas tienes programadas
@@ -27,6 +27,7 @@ Al ser paciente podrás solo agendar citas y ver cuales citas tienes programadas
 En esta pagina podrás hacer y tener acceso a toda la información de pacientes y doctores viendose reflejada en el formulario al crear una nueva cita
 Ademas de ver todas las citas que hay en el sistema
 Podrás crear doctores y pacientes
+Básicamente seras un superadministrador
 Una vez tengas creado doctores y pacientes con su correo correspondiente, estos podrán ingresar a la pagina por medio del login
 
 
