@@ -68,3 +68,11 @@ php artisan serve
 ```
 
 
+## Ingresar
+Para ingresar como doctor puedes usar el correo doctor@mail.com
+Para ingresar como paciente puedes usar el correo paciente@mail.com
+Si bien los usuarios no tienen contraseña, el campo es obligatorio para continuar
+
+Si quieres ingresar como superadministrador debes de remplazar el subdirectior con /General
+
+
