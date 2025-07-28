@@ -148,13 +148,11 @@ const handleSubmit = async () => {
   error.value = '';
   success.value = false;
   
-  // Validación básica
   if (!form.value.name || !form.value.email || !form.value.phone || !form.value.timezone) {
     error.value = 'Por favor complete todos los campos obligatorios';
     return;
   }
   
-  // Validar formato de email
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(form.value.email)) {
     error.value = 'Por favor ingrese un email válido';
@@ -165,13 +163,12 @@ const handleSubmit = async () => {
   try {
     await emit('save', {
       ...form.value,
-      id: Date.now(), // Generar ID único
+      id: Date.now(), 
       createdAt: new Date().toISOString()
     });
     
     success.value = true;
     
-    // Limpiar formulario después de 2 segundos
     setTimeout(() => {
       form.value = {
         name: '',

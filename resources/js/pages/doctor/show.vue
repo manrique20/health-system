@@ -172,7 +172,6 @@ const handleCreatePatient = async (patientData) => {
                             </div>
                         </div>
 
-                        <!-- Horarios de trabajo (ejemplo) -->
                         <div class="mt-6">
                             <h3 class="mb-3 font-semibold text-gray-700">Horarios de Atención</h3>
                             <div class="space-y-1 text-sm text-black">

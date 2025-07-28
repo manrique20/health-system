@@ -4,7 +4,6 @@
             <h2 class="form-title">Nueva Cita</h2>
 
             <form @submit.prevent="handleSubmit" class="space-y-4">
-                <!-- Paciente -->
                 <div>
                     <label class="mb-1 block text-sm font-medium"> Paciente </label>
                     <select v-model="form.patientId" class="w-full rounded-lg border px-3 py-2 text-black" required>
@@ -13,7 +12,6 @@
                     </select>
                 </div>
 
-                <!-- Doctor -->
                 <div>
                     <label class="mb-1 block text-sm font-medium"> Doctor </label>
                     <select v-model="form.doctorId" class="w-full rounded-lg border px-3 py-2 text-black" required>
@@ -22,19 +20,16 @@
                     </select>
                 </div>
 
-                <!-- Fecha -->
                 <div>
                     <label class="mb-1 block text-sm font-medium"> Fecha </label>
                     <input type="date" v-model="form.date" :min="minDate" class="w-full rounded-lg border px-3 py-2" required />
                 </div>
 
-                <!-- Hora -->
                 <div>
                     <label class="mb-1 block text-sm font-medium"> Hora </label>
                     <input type="time" v-model="form.time" step="900" class="w-full rounded-lg border px-3 py-2" required />
                 </div>
 
-                <!-- Duración -->
                 <div>
                     <label class="mb-1 block text-sm font-medium"> Duración </label>
                     <select v-model.number="form.duration" class="w-full rounded-lg border px-3 py-2">
@@ -45,18 +40,15 @@
                     </select>
                 </div>
 
-                <!-- Motivo -->
                 <div>
                     <label class="mb-1 block text-sm font-medium"> Motivo de consulta </label>
                     <textarea v-model="form.reason" rows="3" class="w-full rounded-lg border px-3 py-2" required></textarea>
                 </div>
 
-                <!-- Mensaje de error -->
                 <div v-if="error" class="rounded border border-red-400 bg-red-100 px-4 py-3 text-red-700">
                     {{ error }}
                 </div>
 
-                <!-- Botones -->
                 <div class="flex justify-end space-x-3 pt-4">
                     <button type="button" @click="$emit('close')" class="general-cancel-button">
                         Cancelar
@@ -104,20 +96,17 @@ const minDate = computed(() => DateTime.now().toISODate());
 const handleSubmit = async () => {
     error.value = '';
 
-    // Validar horario de trabajo (9:00 - 17:00)
     const hour = parseInt(form.value.time.split(':')[0]);
     if (hour < 9 || hour >= 17) {
         error.value = 'Las citas deben ser entre 9:00 y 17:00';
         return;
     }
 
-    // Validar superposición
     if (checkOverlap(form.value.date, form.value.time, form.value.duration, form.value.doctorId)) {
         error.value = 'La cita se superpone con otra existente';
         return;
     }
 
-    // Obtener zonas horarias
     const patient = props.patients.find((p) => p.id === form.value.patientId);
     const doctor = props.doctors.find((d) => d.id === form.value.doctorId);
 

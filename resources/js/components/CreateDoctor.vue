@@ -51,7 +51,6 @@
           >
         </div>
 
-        <!-- Email -->
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">
             Correo electrónico
@@ -65,7 +64,6 @@
           >
         </div>
 
-        <!-- Teléfono -->
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">
             Teléfono
@@ -79,7 +77,6 @@
           >
         </div>
 
-        <!-- Número de colegiado -->
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">
             Número de colegiado
@@ -93,7 +90,6 @@
           >
         </div>
 
-        <!-- Zona horaria -->
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">
             Zona horaria
@@ -108,7 +104,6 @@
           </select>
         </div>
 
-        <!-- Horario de atención -->
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">
@@ -134,7 +129,6 @@
           </div>
         </div>
 
-        <!-- Días de atención -->
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">
             Días de atención
@@ -152,17 +146,14 @@
           </div>
         </div>
 
-        <!-- Mensaje de error -->
         <div v-if="error" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
           {{ error }}
         </div>
 
-        <!-- Mensaje de éxito -->
         <div v-if="success" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
           Doctor creado exitosamente
         </div>
 
-        <!-- Botones -->
         <div class="flex justify-end space-x-3 pt-4">
           <button 
             type="button"
@@ -209,7 +200,7 @@ const form = ref({
   timezone: '',
   startTime: '09:00',
   endTime: '17:00',
-  workDays: [1, 2, 3, 4, 5] // Lunes a Viernes por defecto
+  workDays: [1, 2, 3, 4, 5]
 });
 
 const loading = ref(false);
@@ -220,7 +211,6 @@ const handleSubmit = async () => {
   error.value = '';
   success.value = false;
   
-  // Validación
   if (!form.value.name || !form.value.email || !form.value.phone || 
       !form.value.timezone || !form.value.licenseNumber) {
     error.value = 'Por favor complete todos los campos obligatorios';
@@ -237,7 +227,6 @@ const handleSubmit = async () => {
     return;
   }
   
-  // Validar formato de email
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(form.value.email)) {
     error.value = 'Por favor ingrese un email válido';
@@ -257,7 +246,6 @@ const handleSubmit = async () => {
     
     success.value = true;
     
-    // Cerrar después de 2 segundos
     setTimeout(() => {
       emit('close');
     }, 2000);
