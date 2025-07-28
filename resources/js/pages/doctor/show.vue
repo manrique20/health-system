@@ -13,7 +13,7 @@ import { usePage } from '@inertiajs/vue3'
 
 const page = usePage()
 
-const { appointments, patients, doctors, createAppointment, createPatient, cancelAppointment, exportToICal } = useAppointments();
+const { appointments, patients, doctors, confirmAppointment, createAppointment, createPatient, cancelAppointment, exportToICal } = useAppointments();
 const { userTimezone } = useTimezone();
 
 const showForm = ref(false);
@@ -76,7 +76,12 @@ const handleCancel = async (appointmentId) => {
         alert('Cita cancelada. Se han enviado los correos de notificación.');
     }
 };
-
+const handleConfirm = async (appointmentId) => {
+    if (confirm('¿Está seguro de confirmar esta cita?')) {
+        await confirmAppointment(appointmentId);
+        alert('Cita confirmada. Se han enviado los correos de confirmación.');
+    }
+};
 const handleCreatePatient = async (patientData) => {
     try {
         await createPatient(patientData);
@@ -185,7 +190,7 @@ const handleCreatePatient = async (patientData) => {
                 <div class="lg:col-span-3">
                     <CalendarView v-if="showCalendar" :appointments="doctorAppointments"
                         @select-date="selectedDate = $event" />
-                    <AppointmentList v-else :appointments="filteredDoctorAppointments" @cancel="handleCancel" />
+                    <AppointmentList v-else :appointments="filteredDoctorAppointments" @cancel="handleCancel" @confirm="handleConfirm"/>
                 </div>
             </div>
 

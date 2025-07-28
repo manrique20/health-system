@@ -64,7 +64,20 @@ export function useAppointments() {
             simulateEmailNotification(appointment, 'cancelled');
         }
     };
-
+    
+    const confirmAppointment = (appointmentId) => {
+    const index = appointments.value.findIndex(apt => apt.id === appointmentId);
+    if (index !== -1) {
+        const appointment = appointments.value[index];
+        // Cambiar el estado a confirmed
+        appointments.value[index] = {
+            ...appointment,
+            status: 'confirmed'
+        };
+        
+        simulateEmailNotification(appointment, 'confirmed');
+    }
+};
     const checkOverlap = (date, time, duration, doctorId, excludeId = null) => {
         return appointments.value.some(apt => {
             if (apt.id === excludeId || apt.doctorId !== doctorId) return false;
@@ -113,7 +126,8 @@ export function useAppointments() {
         createDoctor,
         cancelAppointment,
         checkOverlap,
-        exportToICal
+        exportToICal,
+        confirmAppointment
     };
 }
 

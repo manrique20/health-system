@@ -39,7 +39,25 @@
                         </div>
                     </div>
 
-                    <button @click="$emit('cancel', appointment.id)" class="ml-4 font-medium text-red-600 hover:text-red-800">Cancelar</button>
+                    <!-- Botones de acción -->
+                    <div class="ml-4 flex flex-col space-y-2">
+                        <!-- Botón confirmar - solo se muestra si está programado Y la ruta contiene doctor o General -->
+                        <button 
+                            v-if="appointment.status === 'scheduled' && canConfirmAppointments"
+                            @click="$emit('confirm', appointment.id)" 
+                            class="font-medium text-green-600 hover:text-green-800"
+                        >
+                            Confirmar
+                        </button>
+                        
+                        <!-- Botón cancelar -->
+                        <button 
+                            @click="$emit('cancel', appointment.id)" 
+                            class="font-medium text-red-600 hover:text-red-800"
+                        >
+                            Cancelar
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -48,6 +66,10 @@
 
 <script setup>
 import { DateTime } from 'luxon';
+import { usePage } from '@inertiajs/vue3';
+import { computed } from 'vue';
+
+const page = usePage();
 
 defineProps({
     appointments: {
@@ -56,7 +78,12 @@ defineProps({
     },
 });
 
-defineEmits(['cancel']);
+defineEmits(['cancel', 'confirm']);
+
+const canConfirmAppointments = computed(() => {
+    const currentUrl = page.url;
+    return currentUrl.includes('doctor') || currentUrl.includes('General');
+});
 
 const formatDate = (date) => {
     return DateTime.fromISO(date).toFormat('dd/MM/yyyy');

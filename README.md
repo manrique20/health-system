@@ -13,6 +13,22 @@ Sistema de gestión de citas médicas desarrollado con Laravel 10 y Vue 3 (Compo
 - ✅ Exportación a formato iCal
 - ✅ Persistencia local con LocalStorage
 - ✅ Diseño responsivec
+## ¿Qué puedo hacer como doctor?
+Al ser doctor podras asignarte citas con todos los pacientes
+Podrás crear otros pacientes
+Verás todas las citas que tengas o tuviste programadas que correspondan a tu id
+Tendras detalle a tu información personal
+
+## ¿Qué puedo hacer como paciente?
+
+Al ser paciente podrás solo agendar citas y ver cuales citas tienes programadas
+
+## ¿De que sirve la url terminada en "/General"?
+En esta pagina podrás hacer y tener acceso a toda la información de pacientes y doctores viendose reflejada en el formulario al crear una nueva cita
+Ademas de ver todas las citas que hay en el sistema
+Podrás crear doctores y pacientes
+Una vez tengas creado doctores y pacientes con su correo correspondiente, estos podrán ingresar a la pagina por medio del login
+
 
 ## Instalación
 
@@ -47,3 +63,5 @@ y luego ejecutar el siguiente en la segunda terminal:
 ```bash
 php artisan serve
 ```
+
+
