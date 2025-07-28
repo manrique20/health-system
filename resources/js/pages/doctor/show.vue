@@ -184,7 +184,7 @@ const handleCreatePatient = async (patientData) => {
                     </div>
                 </div>
                 <div class="lg:col-span-3">
-                    <CalendarView v-if="showCalendar" :appointments="filteredDoctorAppointments"
+                    <CalendarView v-if="showCalendar" :appointments="doctorAppointments"
                         @select-date="selectedDate = $event" />
                     <AppointmentList v-else :appointments="filteredDoctorAppointments" @cancel="handleCancel" />
                 </div>

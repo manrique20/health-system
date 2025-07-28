@@ -147,8 +147,9 @@ const handleCancel = async (appointmentId) => {
                         </div>
                     </div>
                 </div>
+
                 <div class="lg:col-span-3">
-                    <CalendarView v-if="showCalendar" :appointments="filteredPatientAppointments"
+                    <CalendarView v-if="showCalendar" :appointments="patientAppointments"
                         @select-date="selectedDate = $event" />
                     <AppointmentList v-else :appointments="filteredPatientAppointments" @cancel="handleCancel" />
                 </div>
@@ -156,5 +157,6 @@ const handleCancel = async (appointmentId) => {
             <AppointmentForm v-if="showForm" :patients="[currentPatient]" :doctors="doctors" @save="handleSave"
                 @close="showForm = false" :preselected-patient="currentPatient" />
         </div>
+
     </div>
 </template>
