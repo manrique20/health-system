@@ -81,7 +81,7 @@ export const initialAppointments: Appointment[] = [
         id: 'apt_2',
         patientId: 2,
         doctorId: 2,
-        date: '2025-07-25',
+        date: '2025-07-28',
         time: '14:30',
         duration: 45,
         status: 'scheduled',
